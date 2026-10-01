@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Notification;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
+use Illuminate\Support\Enumerable;
 
 class NotificationService
 {
@@ -24,6 +25,12 @@ class NotificationService
             'user_id' => $userId,
             'title' => $title,
             'message' => $message,
+            'read' => false,
         ]);
+    }
+
+    public function listForUser(int $userId): Enumerable
+    {
+        return $this->repository->findByUserId($userId);
     }
 }

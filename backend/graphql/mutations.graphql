@@ -3,7 +3,7 @@ type Mutation {
         user_id: ID!
         title: String!
         message: String!
-    ): Notification! @create
+    ): Notification! @field(resolver: "App\\GraphQL\\Resolvers\\Mutations\\CreateNotification")
 
     markAsRead(id: ID!): Notification! @field(resolver: "App\\GraphQL\\Resolvers\\Mutations\\MarkNotificationAsRead")
 }
