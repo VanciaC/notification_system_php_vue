@@ -1,0 +1,9 @@
+query GetNotifications($userId: ID!) {
+  notifications(user_id: $userId) {
+    id
+    title
+    message
+    read
+    created_at
+  }
+}

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\GraphQL\Queries;
+namespace App\GraphQL\Resolvers\Queries;
 
 use App\Services\NotificationService;
+use Illuminate\Support\Enumerable;
 
 class ListNotifications
 {
@@ -10,7 +11,7 @@ class ListNotifications
         private NotificationService $notificationService
     ) {}
 
-    public function __invoke($_, array $args): iterable
+    public function __invoke($_, array $args): Enumerable
     {
         return $this->notificationService->listForUser((int) $args['user_id']);
     }

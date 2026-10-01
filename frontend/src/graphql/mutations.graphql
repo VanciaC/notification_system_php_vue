@@ -1,0 +1,16 @@
+mutation CreateNotification($userId: ID!, $title: String!, $message: String!) {
+  createNotification(user_id: $userId, title: $title, message: $message) {
+    id
+    title
+    message
+    read
+    created_at
+  }
+}
+
+mutation MarkAsRead($id: ID!) {
+  markAsRead(id: $id) {
+    id
+    read
+  }
+}
