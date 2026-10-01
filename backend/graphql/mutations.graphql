@@ -1,0 +1,9 @@
+type Mutation {
+    createNotification(
+        user_id: ID!
+        title: String!
+        message: String!
+    ): Notification! @create
+
+    markAsRead(id: ID!): Notification! @field(resolver: "App\\GraphQL\\Resolvers\\Mutations\\MarkNotificationAsRead")
+}
