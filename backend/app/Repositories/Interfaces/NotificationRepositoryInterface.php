@@ -3,6 +3,7 @@
 namespace App\Repositories\Interfaces;
 
 use App\Models\Notification;
+use Illuminate\Support\Enumerable;
 
 interface NotificationRepositoryInterface
 {
@@ -12,5 +13,5 @@ interface NotificationRepositoryInterface
 
     public function markAsRead(Notification $notification): Notification;
 
-    public function findByUserId(int $userId): iterable;
+    public function findByUserId(int $userId): Enumerable;
 }

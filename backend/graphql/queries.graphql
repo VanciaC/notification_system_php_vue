@@ -8,6 +8,6 @@ type Query {
       name: String @where(operator: "like")
     ): [User!]! @paginate(defaultCount: 10)
 
-    notifications(user_id: ID! @eq): [Notification!]! @all
-        @orderBy(column: "created_at", direction: DESC)
+    notifications(user_id: ID!): [Notification!]! @field(resolver: "App\\GraphQL\\Resolvers\\Queries\\ListNotifications")
+
 }

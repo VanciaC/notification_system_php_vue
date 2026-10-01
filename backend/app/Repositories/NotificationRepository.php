@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Notification;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
+use Illuminate\Support\Enumerable;
 
 class NotificationRepository implements NotificationRepositoryInterface
 {
@@ -24,9 +25,9 @@ class NotificationRepository implements NotificationRepositoryInterface
         return $notification;
     }
 
-    public function findByUserId(int $userId): iterable
+    public function findByUserId(int $userId): Enumerable
     {
-        return Notification::where('user_id', $userId)
+         return Notification::where('user_id', $userId)
             ->orderByDesc('created_at')
             ->get();
     }
